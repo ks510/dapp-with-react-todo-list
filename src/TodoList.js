@@ -29,6 +29,7 @@ class TodoList extends Component {
                     type="checkbox"
                     name={task.id}
                     defaultChecked={task.completed}
+                    disabled={task.completed}
                     ref={(input) => this.checkbox = input}
                     onClick={(event) => this.props.toggleCompleted(this.checkbox.name)} />
                   <span className="content">{task.content}</span>

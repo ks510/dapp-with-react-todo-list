@@ -1,4 +1,12 @@
-# dapp-with-react-todo-list
+## Todo List Dapp
+A simple Todo List dapp that stores all tasks in a smart contract with a client app for users to add new tasks or complete current tasks in the list. Built with React. The client app is manually wired to the TodoList smart contract using /src/config.js which must be updated whenever the contract is re-migrated.
+
+### Dependencies
+- npm
+- React
+- Bootstrap
+- Ganache
+- Meta Mask Chrome Extension
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
