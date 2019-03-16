@@ -7,6 +7,7 @@ A simple Todo List dapp that stores all tasks in a smart contract with a client 
 - Bootstrap
 - Ganache
 - Meta Mask Chrome Extension
+- Web3
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
