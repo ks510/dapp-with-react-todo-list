@@ -38,6 +38,18 @@ class App extends Component {
       tasks: [],
       loading: true
     }
+    this.createTask = this.createTask.bind(this)
+  }
+
+  createTask(content) { // task description from input textbox
+    this.setState({ loading: true }) // toggle loader
+    // call the contract method to create a task
+    // trigger a send() method to write data to the blockchain instead of call()
+    // the caller of the method will be the client account that is connected to the blockchain
+    this.state.todoList.methods.createTask(content).send({ from: this.state.account })
+      .once('receipt', (receipt) => {
+        this.setState({ loading: false })  // wait for tx receipt and toggle loader to reload app
+      })
   }
 
   render() {
@@ -56,7 +68,7 @@ class App extends Component {
             <main role="main" className="col-lg-12 d-flex justify-content-center">
             { this.state.loading
               ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div>
-              : <TodoList tasks={this.state.tasks}/>
+              : <TodoList tasks={this.state.tasks} createTask={this.createTask}/>
             }
             </main>
           </div>

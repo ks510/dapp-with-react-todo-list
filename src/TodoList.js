@@ -5,13 +5,18 @@ class TodoList extends Component {
   render() {
     return (
       <div id="content">
-        <form>
-          <input id="newTask" type="text" className="form-control" placeholder="Add task..." required/>
-          <input type="submit" hidden=""/>
+        <form onSubmit={(event) => {
+          event.preventDefault()  // disables default behaviour of forms that would change the page
+          this.props.createTask(this.task.value) // get value of task box as argument to handler function
+        }}>
+          <input id="newTask" ref={(input) => this.task = input} type="text" className="form-control" placeholder="Add task..." required/>
+          <input type="submit" hidden={true}/>
         </form>
         <ul id="taskList" className="list-unstyled">
-          {this.props.tasks.map((task,key) => { // for every task in state, render this div
-            return(                             // task = object in array, key = index of object
+          {this.props.tasks.map((task,key) => {
+            // for every task in state, render this div
+            // task = object in array, key = index of object
+            return(
               <div className="taskTemplate" className="checkbox" key={key}>
                 <label>
                   <input type="checkbox" />
